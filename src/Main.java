@@ -22,11 +22,31 @@ public class Main {
         Lecture lecture5 = lectureService.creatLecture(course1.COURSE_ID);
         Lecture lecture6 = lectureService.creatLecture(course1.COURSE_ID);
 
-
-        System.out.println(Course.counterCourse);
-        System.out.println(Lecture.counterLecture);
         System.out.println(course1.COURSE_ID);
-        System.out.println(lecture5.LECTURE_ID);
+        System.out.println(Course.counterCourse);
+        System.out.println(lecture1.LECTURE_ID);
+        System.out.println(lecture3.LECTURE_ID);
+        System.out.println(lecture6.LECTURE_ID);
+        System.out.println(lecture1.courseLectureId);
+        System.out.println(lecture5.courseLectureId);
+
+        System.out.println("Course ID of the sixth lecture is " + lecture6.courseLectureId + ".");
+        System.out.println("Total lecture created " + Lecture.counterLecture + ".");
+
+        Course course2 = courseService.creatCourse();
+        Lecture lecture7 = lectureService.creatLecture(course2.COURSE_ID);
+        Lecture lecture8 = lectureService.creatLecture(course2.COURSE_ID);
+        Lecture lecture9 = lectureService.creatLecture(course2.COURSE_ID);
+
+        System.out.println(course2.COURSE_ID);
+        System.out.println(Course.counterCourse);
+        System.out.println(lecture7.LECTURE_ID);
+        System.out.println(lecture9.LECTURE_ID);
+        System.out.println(lecture7.courseLectureId);
+        System.out.println(lecture9.courseLectureId);
+
+        System.out.println("Course ID of the sixth lecture is " + lecture6.courseLectureId + ".");
+        System.out.println("Total lecture created " + Lecture.counterLecture + ".");
 
 
     }
