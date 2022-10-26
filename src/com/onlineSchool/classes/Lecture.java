@@ -11,7 +11,8 @@ public class Lecture {
     private Homework homework;
     private AdditionelMaterials additionelMaterials;
 
-    public Lecture() {
+    public Lecture(int courseLectureId) {
+        this.courseLectureId = courseLectureId;
         counterLecture++;
     }
 }
