@@ -1,9 +1,10 @@
 package com.onlineSchool.classes;
 
-public class AdditionelMaterials {
+public class AdditionalMaterials {
     public static int counterAdditionalMaterials = 0;
 
-    public AdditionelMaterials() {
+
+    public AdditionalMaterials() {
         counterAdditionalMaterials++;
     }
 }

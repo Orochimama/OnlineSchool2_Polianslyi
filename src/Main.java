@@ -1,9 +1,7 @@
-import com.onlineSchool.classes.Course;
-import com.onlineSchool.classes.Lecture;
-import com.onlineSchool.service.CourseService;
-import com.onlineSchool.service.LectureService;
+import com.onlineSchool.classes.*;
+import com.onlineSchool.service.*;
 
-import java.util.concurrent.Callable;
+import java.util.Scanner;
 
 
 public class Main {
@@ -11,41 +9,91 @@ public class Main {
     public static void main(String[] args) {
 
         CourseService courseService = new CourseService();
-        Course course1 = courseService.creatCourse();
-
         LectureService lectureService = new LectureService();
-        Lecture lecture1 = lectureService.creatLecture(course1.COURSE_ID);
-        Lecture lecture2 = lectureService.creatLecture(course1.COURSE_ID);
-        Lecture lecture3 = lectureService.creatLecture(course1.COURSE_ID);
-        Lecture lecture4 = lectureService.creatLecture(course1.COURSE_ID);
-        Lecture lecture5 = lectureService.creatLecture(course1.COURSE_ID);
-        Lecture lecture6 = lectureService.creatLecture(course1.COURSE_ID);
+        TeacherService teacherService = new TeacherService();
+        StudentService studentService = new StudentService();
+        HomeworkService homeworkService = new HomeworkService();
+        AdditionalMaterialsService additionalMaterialsService = new AdditionalMaterialsService();
 
-        System.out.println(course1.COURSE_ID);
-        System.out.println(Course.counterCourse);
-        System.out.println(lecture1.LECTURE_ID);
-        System.out.println(lecture3.LECTURE_ID);
-        System.out.println(lecture6.LECTURE_ID);
-        System.out.println(lecture1.courseLectureId);
-        System.out.println(lecture5.courseLectureId);
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Course ID of the sixth lecture is " + lecture6.courseLectureId + ".");
-        System.out.println("Total lecture created " + Lecture.counterLecture + ".");
+        System.out.println("Do you want to create a new course? yes/no");
 
-        Course course2 = courseService.creatCourse();
-        Lecture lecture7 = lectureService.creatLecture(course2.COURSE_ID);
-        Lecture lecture8 = lectureService.creatLecture(course2.COURSE_ID);
-        Lecture lecture9 = lectureService.creatLecture(course2.COURSE_ID);
+        String creatNewCourse = scanner.nextLine();
 
-        System.out.println(course2.COURSE_ID);
-        System.out.println(Course.counterCourse);
-        System.out.println(lecture7.LECTURE_ID);
-        System.out.println(lecture9.LECTURE_ID);
-        System.out.println(lecture7.courseLectureId);
-        System.out.println(lecture9.courseLectureId);
+        if (creatNewCourse.equals("yes")) {
+            Course course1 = courseService.creatCourse();
+            System.out.println("");
+            System.out.println("You have created a Course object. Course ID is '1'");
+            System.out.println("");
+        } else if (creatNewCourse.equals("no")) {
+            //выход из программы
+        } else {
+            //возаврат к сканеру
+        }
 
-        System.out.println("Course ID of the sixth lecture is " + lecture6.courseLectureId + ".");
-        System.out.println("Total lecture created " + Lecture.counterLecture + ".");
+
+        System.out.println("Choose which object you want to create:");
+        System.out.println("lecture");
+        System.out.println("teacher");
+        System.out.println("student");
+        System.out.println("nothin (for exit the menu)");
+
+        String chooseObjectInCourse = scanner.nextLine();
+
+        switch (chooseObjectInCourse) {
+            case "lecture":
+                Lecture lecture1 = lectureService.creatLecture(1);
+                System.out.println("");
+                System.out.println("You have created a Lecture object. Lecture Course ID is '1'");
+                System.out.println("");
+                System.out.println("Choose which object you want to create:");
+                System.out.println("homework");
+                System.out.println("additional materials");
+                System.out.println("nothin (for exit the menu)");
+
+                String chooseObjectInLecture = scanner.nextLine();
+
+                switch (chooseObjectInLecture) {
+                    case "homework":
+                        Homework homework1 = homeworkService.creatHomework();
+                        System.out.println("");
+                        System.out.println("You have created a Homework object");
+                        break;
+                    case "additional materials":
+                        AdditionalMaterials additionalMaterials1 = additionalMaterialsService.creatAdditionalMaterials();
+                        System.out.println("");
+                        System.out.println("You have created a Additional materials object");
+                        break;
+                    case "nothin":
+                        break;
+                    default:
+                        System.out.println("Invalid value entered. Try typing in lower case.");
+                        //cycle
+                }
+                break;
+            case "teacher":
+                Teacher teacher1 = teacherService.creatTeacher(1);
+                System.out.println("");
+                System.out.println("You have created a Teacher object. Teacher Course ID is '1'");
+                break;
+            case "student":
+                Student student1 = studentService.creatStudent(1);
+                System.out.println("");
+                System.out.println("You have created a Student object. Student Course ID is '1'");
+                break;
+            case "nothin":
+                break;
+            default:
+                System.out.println("Invalid value entered. Try typing in lower case.");
+                //cycle
+        }
+
+
+//закрыть сканер
+        //добавить уведомленте что было создано
+        //
+        //
 
 
     }

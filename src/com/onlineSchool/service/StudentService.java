@@ -3,7 +3,9 @@ package com.onlineSchool.service;
 import com.onlineSchool.classes.Student;
 
 public class StudentService {
-    public Student creatStudent() {
-        return new Student();
+    int courseStudentId;
+
+    public Student creatStudent(int courseStudentId) {
+        return new Student(courseStudentId);
     }
 }

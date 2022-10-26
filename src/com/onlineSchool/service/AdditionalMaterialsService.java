@@ -1,9 +1,9 @@
 package com.onlineSchool.service;
 
-import com.onlineSchool.classes.AdditionelMaterials;
+import com.onlineSchool.classes.AdditionalMaterials;
 
 public class AdditionalMaterialsService {
-    public AdditionelMaterials creatAdditionalMaterials() {
-        return new AdditionelMaterials();
+    public AdditionalMaterials creatAdditionalMaterials() {
+        return new AdditionalMaterials();
     }
 }
